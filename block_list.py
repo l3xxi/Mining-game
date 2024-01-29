@@ -1,0 +1,12 @@
+blocklist = {"grass":"#154009",
+             "dirt":"#9c5b33",
+             "stone":"#4d4d4d",
+             "ore":"#ed7b18",
+             "bedrock":"#101f1e",
+             "redwool":"#ff0000",
+             "orangewool":"#ff8000",
+             "yellowwool":"#ffff00",
+             "greenwool":"#00ff00",
+             "bluewool":"#0000ff",
+             "purplewool":"#8000ff",
+             "pinkwool":"#ff00ff"}
