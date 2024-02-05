@@ -1,36 +1,36 @@
-import math
-import random
-
-
-def dice_roll(n):
-    if n < 1: return True
-    if random.randint(0,n) == 1: return True
-    else: return False
+from random import *
 
 
 def create_world(width, height):
     world = []
-    height += 64
     for layer in range(height):
         world.append([])
         for selection in range(width):
+            world[layer].append("air")
+    return world
+
+def randomise_world(world):
+    height = len(world)
+    width = len(world[0])
+    for layer in range(height):
+        for selection in range(width):
             if layer < 64:
-                world[layer].append("air")
+                world[layer][selection] = "air"
                 continue
             elif layer == 64:
-                world[layer].append("grass")
+                world[layer][selection]= "grass"
             elif layer == height-1:
-                world[layer].append("bedrock")
+                world[layer][selection]= "bedrock"
             else:
                 while True:
-                    if dice_roll(layer-64):
-                        world[layer].append("dirt")
+                    if random()< 0.25:
+                        world[layer][selection]= "dirt"
                         break
-                    elif dice_roll(5):
-                        world[layer].append("stone")
+                    elif random() < 0.5:
+                        world[layer][selection]= "stone"
                         break
-                    elif dice_roll(5000//(layer-64)):
-                        world[layer].append("ore")
+                    elif random() < 0.001*(layer/height*100):
+                        world[layer][selection]= "ore"
                         break
             
     return world
